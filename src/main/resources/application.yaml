@@ -1,0 +1,22 @@
+server:
+  port: 9030
+
+spring:
+  main:
+    allow-circular-references: true
+  application:
+    name: UMS-NOTIFICATION-SERVICE
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    password: manager
+    url: jdbc:postgresql://localhost:5432/umsnotificationdb
+    username: postgres
+  devtools:
+    restart:
+      enabled: true
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  
