@@ -10,6 +10,6 @@ public interface NotificationService {
 
 	List<Notification> getAllNotifications(String emailId);
 	
-    Notification SaveNotification(Notification notification);
+    Notification saveNotification(Notification notification);
 	
 }

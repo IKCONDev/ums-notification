@@ -25,14 +25,15 @@ public class NotificationServiceImpl  implements NotificationService{
 
 	@Override
 	public List<Notification> getAllNotifications(String emailId) {
-		
+		log.info("NotificationController.getAllNotification() entered with args:"+emailId);
 		List<Notification> notificationList = notificationRepository.getAllNotifications(emailId);
 		return notificationList;
 	}
 
 	@Override
-	public Notification SaveNotification(Notification notification) {
+	public Notification saveNotification(Notification notification) {
 		
+		log.info("NotificationController.SaveNotification() entered with args:- notifaction");
 		Notification saveNotification = notificationRepository.save(notification);
 		return saveNotification;
 	}

@@ -41,7 +41,7 @@ public class NotificationController {
 			
 		}catch (Exception e) {
 			// TODO: handle exception
-			log.info("Exception occured while executing the getAllNotifications()"+ e.getMessage());
+			log.info("NotificationController.getAllNotification() exited with exception :Exception occured while fetching the Notification"+ e.getMessage());
 			e.printStackTrace();
 			return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
 		}
@@ -50,11 +50,15 @@ public class NotificationController {
 	
 	@PostMapping("/save")
 	public ResponseEntity<?> saveNotificationDetails(Notification notification){
+		log.info("NotificationController.saveNotificationDetails() entered with args notification:");
 		try {
-		   Notification savedNotification = notificationService.SaveNotification(notification);
+		   log.info("NotificationController.saveNotificationDetails() is under execution...");
+		   Notification savedNotification = notificationService.saveNotification(notification);
+		   log.info("NotificationController.saveNotificationDetails() executed successfully");
 		   return new ResponseEntity<>(savedNotification,HttpStatus.CREATED);
 			
 		}catch (Exception e) {
+			log.info("NotificationController.saveNotificationDetails() exited with exception : An Exception occurred while creating the Notification:"+e.getMessage());
 			e.printStackTrace();
 			return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 		}
