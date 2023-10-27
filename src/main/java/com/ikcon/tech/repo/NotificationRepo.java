@@ -16,7 +16,7 @@ public interface NotificationRepo  extends JpaRepository<Notification, Long>{
     //List<Notification> getAllNotifications(String emailId);
     
   
-   @Query(value ="select * from notify_tab where email_id=:emailId order by notify_id desc limit 10 ",nativeQuery = true)
+   @Query(value ="select * from notify_tab where notification_to=:emailId order by notify_id desc limit 10 ",nativeQuery = true)
    List<Notification> getAllNotifications(String emailId);
 
 }

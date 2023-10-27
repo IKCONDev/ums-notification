@@ -21,31 +21,22 @@ public class Notification {
     @Column(name="notify_id")	
 	private Long id;
 	
-	@Column(name="emailId")
-	private String emailId;
-	
 	@Column(name="message")
 	private String  message;
 	
 	@Column(name="moduleType")
 	private String moduleType;
 	
+	@Column(name = "notificationTo")
+	private String notificationTo;
+	
+	@Column(name="user_id")
+	private String emailId;
+	
 	@Column(name = "createdDateTime")
 	private LocalDateTime createdDateTime;
 	
-	@Column(name = "modifiedDateTime")
-	private LocalDateTime modifiedDateTime;
-	
-	@Column(name = "createdBy")
-	private String createdBy;
-	
-	@Column(name = "modifiedBy")
-	private String modifiedBy;
-	
 	@Column(name = "createdByEmailId")
 	private String createdByEmailId;
-	
-	@Column(name = "modifiedByEmailId")
-	private String modifiedByEmailId;
 
 }

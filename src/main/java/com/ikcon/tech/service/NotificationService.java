@@ -11,5 +11,7 @@ public interface NotificationService {
 	List<Notification> getAllNotifications(String emailId);
 	
     Notification saveNotification(Notification notification);
+    
+    List<Notification> createAllNotifications(List<Notification> notificationList);
 	
 }
