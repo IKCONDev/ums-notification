@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -49,7 +50,7 @@ public class NotificationController {
 	}
 	
 	@PostMapping("/create")
-	public ResponseEntity<?> saveNotificationDetails(@RequestBody Notification notification){
+	public ResponseEntity<?> createNotificationDetails(@RequestBody Notification notification){
 		log.info("NotificationController.saveNotificationDetails() entered with args notification:");
 		try {
 		   log.info("NotificationController.saveNotificationDetails() is under execution...");
@@ -69,6 +70,12 @@ public class NotificationController {
 	public ResponseEntity<?> createAllNotifications(@RequestBody List<Notification> notificationList){
 		List<Notification> createdNotificationList = notificationService.createAllNotifications(notificationList);
 		return new ResponseEntity<>(createdNotificationList, HttpStatus.CREATED);
+	}
+	
+	@PutMapping("/update")
+	public ResponseEntity<?> updateNotification(@RequestBody Notification notification){
+		Notification updatedNotification = notificationService.updateNotification(notification);
+		return new ResponseEntity<>(updatedNotification, HttpStatus.PARTIAL_CONTENT);
 	}
 	
 	

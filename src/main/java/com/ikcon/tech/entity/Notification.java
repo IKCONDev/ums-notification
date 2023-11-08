@@ -33,6 +33,9 @@ public class Notification {
 	@Column(name="user_id")
 	private String emailId;
 	
+	@Column(name = "status")
+	private String status;
+	
 	@Column(name = "createdDateTime")
 	private LocalDateTime createdDateTime;
 	
