@@ -27,6 +27,9 @@ public class Notification {
 	@Column(name="moduleType")
 	private String moduleType;
 	
+	@Column(name = "moduleRecordId")
+	private Long moduleRecordId;
+	
 	@Column(name = "notificationTo")
 	private String notificationTo;
 	

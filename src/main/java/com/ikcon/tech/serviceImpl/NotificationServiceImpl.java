@@ -44,6 +44,9 @@ public class NotificationServiceImpl  implements NotificationService{
 	@Transactional
 	@Override
 	public List<Notification> createAllNotifications(List<Notification> notificationList) {
+		notificationList.forEach(notification -> {
+			notification.setStatus("Unread");
+		});
 		return notificationRepository.saveAll(notificationList);
 	}
 	
