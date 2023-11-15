@@ -12,5 +12,6 @@ public interface NotificationService {
     Notification saveNotification(Notification notification);
     List<Notification> createAllNotifications(List<Notification> notificationList);
     Notification updateNotification(Notification notification);
+    long countUnreadNotificationsByEmailId(String emailId); 
 	
 }

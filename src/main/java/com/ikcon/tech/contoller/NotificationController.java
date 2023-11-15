@@ -78,6 +78,25 @@ public class NotificationController {
 		return new ResponseEntity<>(updatedNotification, HttpStatus.PARTIAL_CONTENT);
 	}
 	
+	@GetMapping("/countAll/{email}")
+	public ResponseEntity<?> getAllNotificationCount(@PathVariable("email") String emailId){
+		
+	    log.info("NotificationController.getAllNotificationCount() entered with args:"+emailId);
+		try {
+			  log.info("NotificationController.getAllNotification() is under execution...");
+			  Long notificationCount = notificationService.countUnreadNotificationsByEmailId(emailId);
+			  log.info("NotificationController.getAllNotification() executed successfully");
+			  return new ResponseEntity<>(notificationCount,HttpStatus.OK);
+			
+		}catch (Exception e) {
+			// TODO: handle exception
+			log.info("NotificationController.getAllNotification() exited with exception :Exception occured while fetching the Notification"+ e.getMessage());
+			e.printStackTrace();
+			return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
+		}
+	
+	}
+	
 	
 	
 }

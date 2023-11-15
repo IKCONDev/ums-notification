@@ -16,7 +16,11 @@ public interface NotificationRepo  extends JpaRepository<Notification, Long>{
     //List<Notification> getAllNotifications(String emailId);
     
   
-   @Query(value ="select * from notify_tab where notification_to=:emailId order by notify_id desc limit 10 ",nativeQuery = true)
+   @Query(value ="select * from notify_tab where notification_to=:emailId and status='Unread' order by notify_id desc ",nativeQuery = true)
    List<Notification> getAllNotifications(String emailId);
+   
+   @Query(value ="SELECT COUNT(*) FROM notify_tab WHERE notification_to = :emailId AND status = 'Unread'", nativeQuery = true)
+   long countUnreadNotificationsByEmailId(String emailId);
 
+   
 }

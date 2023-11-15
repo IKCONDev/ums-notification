@@ -73,5 +73,11 @@ public class NotificationServiceImpl  implements NotificationService{
 		dbNotification.setStatus("Read");
 		return dbNotification;
 	}
+
+	@Override
+	public long countUnreadNotificationsByEmailId(String emailId) {
+		long unreadNotifyCount=notificationRepository.countUnreadNotificationsByEmailId(emailId);
+		return unreadNotifyCount;
+	}
 	
 }
