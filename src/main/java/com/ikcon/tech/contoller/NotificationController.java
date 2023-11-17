@@ -78,8 +78,8 @@ public class NotificationController {
 		return new ResponseEntity<>(updatedNotification, HttpStatus.PARTIAL_CONTENT);
 	}
 	
-	@GetMapping("/countAll/{email}")
-	public ResponseEntity<?> getAllNotificationCount(@PathVariable("email") String emailId){
+	@GetMapping("/count/{emailId}")
+	public ResponseEntity<?> getAllNotificationCount(@PathVariable String emailId){
 		
 	    log.info("NotificationController.getAllNotificationCount() entered with args:"+emailId);
 		try {
