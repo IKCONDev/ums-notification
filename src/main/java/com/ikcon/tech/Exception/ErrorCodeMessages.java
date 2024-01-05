@@ -14,7 +14,11 @@ public class ErrorCodeMessages {
 	 public static final String ERR_NOTIFICAT_LISt_IS_NULL_CODE = "ERR_NOTIFICAT_LISt_IS_NULL_CODE-1004";
 	 public static final String ERR_NOTIFICAT_LISt_IS_NULL_MSG = "Notification Enity List is null"; 
 	 
-
+	 public static final String ERR_NOTIFICAT_ENITITY_IS_NULL_CODE = "ERR_NOTIFICAT_ENITITY_IS_NULL_CODE-1005";
+	 public static final String ERR_NOTIFICAT_ENITITY_IS_NULL_MSG  = "Notification Entity is null";
+	 
+	 public static final String ERR_NOTIFICAT_EMAIL_ID_IS_NULL_CODE = "ERR_NOTIFICAT_EMAIL_ID_IS_NULL_CODE-1006";
+	 public static final String ERR_NOTIFICAT_EMAIL_ID_IS_NULL_MSG  = "Email Id is null";
 	 
 
 	
