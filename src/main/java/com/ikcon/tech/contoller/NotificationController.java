@@ -43,7 +43,7 @@ public class NotificationController {
 			
 		}catch (Exception e) {
 			// TODO: handle exception
-			log.info("NotificationController.getAllNotification() exited with exception :Exception occured while fetching the Notification"+ e.getMessage());
+			log.error("NotificationController.getAllNotification() exited with exception :Exception occured while fetching the Notification"+ e.getMessage());
 			e.printStackTrace();
 			throw new ControllerException(ErrorCodeMessages.ERR_NOTIFICAT_LISt_IS_NULL_CODE, ErrorCodeMessages.ERR_NOTIFICAT_LISt_IS_NULL_MSG);
 		}
@@ -60,7 +60,7 @@ public class NotificationController {
 		   return new ResponseEntity<>(savedNotification,HttpStatus.CREATED);
 			
 		}catch (Exception e) {
-			log.info("NotificationController.saveNotificationDetails() exited with exception : An Exception occurred while creating the Notification:"+e.getMessage());
+			log.error("NotificationController.saveNotificationDetails() exited with exception : An Exception occurred while creating the Notification:"+e.getMessage());
 			e.printStackTrace();
 			//return new ResponseEntity<>(e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
 			throw new ControllerException(ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_IS_NULL_CODE, ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_IS_NULL_MSG);
@@ -77,7 +77,7 @@ public class NotificationController {
 			log.info("createAllNotifications() executed succssfully");
 			return new ResponseEntity<>(createdNotificationList, HttpStatus.CREATED);
 		}catch(Exception e) {
-			log.info("createAllNotifications() exited with exception :Exception occured while creating the Notification"+ e.getMessage());
+			log.error("createAllNotifications() exited with exception :Exception occured while creating the Notification"+ e.getMessage());
 			e.printStackTrace();
 			//return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
 			throw new ControllerException(ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_IS_NULL_CODE, ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_IS_NULL_MSG);
@@ -96,7 +96,7 @@ public class NotificationController {
 			return new ResponseEntity<>(updatedNotification, HttpStatus.PARTIAL_CONTENT);
 			
 		}catch(Exception e) {
-			log.info("updateNotification() exited with exception :Exception occured while updating the Notification"+ e.getMessage());
+			log.error("updateNotification() exited with exception :Exception occured while updating the Notification"+ e.getMessage());
 			e.printStackTrace();
 			throw new ControllerException(ErrorCodeMessages.ERR_NOTIFICAT_ID_NOT_FOUND_CODE, ErrorCodeMessages.ERR_NOTIFICAT_ID_NOT_FOUND_MSG);
 			
@@ -116,7 +116,7 @@ public class NotificationController {
 			
 		}catch (Exception e) {
 			// TODO: handle exception
-			log.info("NotificationController.getAllNotification() exited with exception :Exception occured while fetching the Notification"+ e.getMessage());
+			log.error("NotificationController.getAllNotification() exited with exception :Exception occured while fetching the Notification"+ e.getMessage());
 			e.printStackTrace();
 			//return new ResponseEntity<>(e.getMessage(),HttpStatus.INTERNAL_SERVER_ERROR);
 			throw new ControllerException(ErrorCodeMessages.ERR_NOTIFICAT_LISt_IS_NULL_CODE, ErrorCodeMessages.ERR_NOTIFICAT_LISt_IS_NULL_MSG);
