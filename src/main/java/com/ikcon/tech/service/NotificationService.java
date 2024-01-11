@@ -2,7 +2,6 @@ package com.ikcon.tech.service;
 
 import java.util.List;
 
-import com.ikcon.tech.dto.NotificationDto;
 import com.ikcon.tech.entity.Notification;
 
 

@@ -35,7 +35,8 @@ public class NotificationServiceImpl  implements NotificationService{
 	@Override
 	public List<Notification> getAllNotifications(String emailId) {
 		log.info("getAllNotification() entered with args : emailid - "+emailId);
-		if(emailId == null) {
+		if(emailId == null || emailId.equals("")) {
+			log.info("getAllNotification() EmptyInputException: email id is null");
 			throw new EmptyInputException(ErrorCodeMessages.ERR_NOTIFICAT_EMAIL_ID_IS_NULL_CODE,
 					 ErrorCodeMessages.ERR_NOTIFICAT_EMAIL_ID_IS_NULL_MSG);
 		}
@@ -58,8 +59,9 @@ public class NotificationServiceImpl  implements NotificationService{
 	public Notification saveNotification(Notification notification) {
 		log.info("SaveNotification() entered with args : notification object");
 		if(notification == null) {
-			throw new EmptyInputException(ErrorCodeMessages.ERR_NOTIFICAT_ENITITY_IS_NULL_CODE,
-					ErrorCodeMessages.ERR_NOTIFICAT_ENITITY_IS_NULL_MSG);
+			log.info("saveNotification() EmptyInputException: notification entity is null");
+			throw new EmptyInputException(ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_IS_NULL_CODE,
+					ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_IS_NULL_MSG);
 		}
 		notification.setStatus("Unread");
 		notification.setCreatedDateTime(LocalDateTime.now());
@@ -73,43 +75,46 @@ public class NotificationServiceImpl  implements NotificationService{
 	@Transactional
 	@Override
 	public List<Notification> createAllNotifications(List<Notification> notificationList) {
-		log.info("NotificationController.SaveNotification() entered with args : notification object");
+		log.info("createAllNotifications() entered with args : notification object");
 		if(notificationList.size() <=0) {
-			throw new EmptyListException(ErrorCodeMessages.ERR_NOTIFICAT_LISt_IS_NULL_CODE, 
-					ErrorCodeMessages.ERR_NOTIFICAT_LISt_IS_NULL_MSG);
+			log.info("createAllNotifications() EmptyInputException: notification entity is null");
+			throw new EmptyListException(ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_LIST_IS_NULL_CODE, 
+					ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_LIST_IS_NULL_MSG);
 		}
-		log.info("SaveNotification() is under execution...");
+		log.info("createAllNotifications() is under execution...");
 		notificationList.forEach(notification -> {
 			notification.setStatus("Unread");
 		});
 		List<Notification> savedNotificationList = notificationRepository.saveAll(notificationList);
-		log.info("SaveNotification()  executed successfully");
+		log.info("createAllNotifications()  executed successfully");
 		return savedNotificationList;
 	}
 	
 	@Transactional
 	@Override
 	public Notification updateNotification(Notification notification) {
-		log.info("SaveNotification() entered with args : notification object");
+		log.info("updateNotification() entered with args : notification object");
 		if(notification == null) {
-			throw new EmptyInputException(ErrorCodeMessages.ERR_NOTIFICAT_ENITITY_IS_NULL_CODE,
-					ErrorCodeMessages.ERR_NOTIFICAT_ENITITY_IS_NULL_MSG);
+			log.info("updateNotification() EmptyInputException: notification entity is null");
+			throw new EmptyInputException(ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_IS_NULL_CODE,
+					ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_IS_NULL_MSG);
 		}
 		Optional<Notification> optNotification = notificationRepository.findById(notification.getId());
-		log.info("SaveNotification() is under execution...");
+		log.info("updateNotification() is under execution...");
 		Notification dbNotification = null;
 		if(optNotification.isPresent()) {
 			dbNotification = optNotification.get();
 		}
 		dbNotification.setStatus("Read");
-		log.info("SaveNotification() executed successfully");
+		log.info("updateNotification() executed successfully");
 		return dbNotification;
 	}
 
 	@Override
 	public long countUnreadNotificationsByEmailId(String emailId) {
 		log.info("countUnreadNotificationsByEmailId() entered with args :emailId - "+ emailId);
-		if(emailId == null) {
+		if(emailId == null || emailId.equals("")) {
+			log.info("countUnreadNotificationsByEmailId() EmptyInputException: email id is null");
 			throw new EmptyInputException(ErrorCodeMessages.ERR_NOTIFICAT_EMAIL_ID_IS_NULL_CODE,
 					 ErrorCodeMessages.ERR_NOTIFICAT_EMAIL_ID_IS_NULL_MSG);
 		}
