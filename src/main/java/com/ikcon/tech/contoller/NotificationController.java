@@ -59,6 +59,7 @@ public class NotificationController {
 	public ResponseEntity<Notification> createNotificationDetails(@RequestBody Notification notification){
 		log.info("saveNotificationDetails() entered with args notification:");
 		if(notification == null) {
+			log.info("saveNotificationDetails() EmptyInputException : object is null");
 			throw new EmptyInputException(ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_IS_NULL_CODE,
 					ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_IS_NULL_MSG);
 		}
@@ -81,7 +82,7 @@ public class NotificationController {
 	public ResponseEntity<List<Notification>> createAllNotifications(@RequestBody List<Notification> notificationList){
 		log.info("createAllNotifications() entered with args:");
 		if(notificationList.size() <= 0) {
-			log.error("createAllNotifications() EmptyInputException: notification entity is null");
+			log.info("createAllNotifications() EmptyInputException: notification entity is null");
 			throw new EmptyInputException(ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_LIST_IS_NULL_CODE,
 					ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_LIST_IS_NULL_MSG);
 		}

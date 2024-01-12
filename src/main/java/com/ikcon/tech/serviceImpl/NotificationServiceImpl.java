@@ -47,7 +47,7 @@ public class NotificationServiceImpl  implements NotificationService{
 			String email = notification.getEmailId();
 			UserVO user =   restTemplate.getForObject("http://UMS-USERS-SERVICE/user/getUser/"+email,UserVO.class);
 			notification.setProfilepic(user.getProfilePic());
-			System.out.println("the notification object is : "+notification);
+			//System.out.println("the notification object is : "+notification);
 			updatedList.add(notification);
 		});
 		log.info("getAllNotification() executed successfully");
