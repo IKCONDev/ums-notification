@@ -48,7 +48,6 @@ public class NotificationController {
 			
 		}catch (Exception e) {
 			log.error("getAllNotification() exited with exception :Exception occured while fetching the Notification"+ e.getMessage(), e);
-			e.printStackTrace();
 			throw new ControllerException(ErrorCodeMessages.ERR_NOTIFICAT_GET_ENITITY_UNSUCCESS_CODE, 
 					ErrorCodeMessages.ERR_NOTIFICAT_GET_ENITITY_UNSUCCESS_MSG);
 		}
@@ -71,7 +70,6 @@ public class NotificationController {
 			
 		}catch (Exception e) {
 			log.error("saveNotificationDetails() exited with exception : An Exception occurred while creating the Notification:"+e.getMessage(), e);
-			e.printStackTrace();
 			throw new ControllerException(ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_SAVE_UNSUCCESS_CODE,
 					ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_SAVE_UNSUCCESS_MSG);
 		}
@@ -93,7 +91,6 @@ public class NotificationController {
 			return new ResponseEntity<>(createdNotificationList, HttpStatus.CREATED);
 		}catch(Exception e) {
 			log.error("createAllNotifications() exited with exception :Exception occured while creating the Notification"+ e.getMessage(), e);
-			e.printStackTrace();
 			throw new ControllerException(ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_SAVE_UNSUCCESS_CODE, 
 					ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_SAVE_UNSUCCESS_MSG);
 		}
@@ -117,7 +114,6 @@ public class NotificationController {
 			
 		}catch(Exception e) {
 			log.error("updateNotification() exited with exception :Exception occured while updating the Notification"+ e.getMessage(), e);
-			e.printStackTrace();
 			throw new ControllerException(ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_SAVE_UNSUCCESS_CODE, 
 					ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_SAVE_UNSUCCESS_MSG);
 			
@@ -142,7 +138,6 @@ public class NotificationController {
 			
 		}catch (Exception e) {
 			log.error("getAllNotification() exited with exception :Exception occured while fetching the Notification"+ e.getMessage(), e);
-			e.printStackTrace();
 			throw new ControllerException(ErrorCodeMessages.ERR_NOTIFICAT_GET_ENTITY_LIST_UNSUCCESS_CODE, 
 					ErrorCodeMessages.ERR_NOTIFICAT_GET_ENTITY_LIST_UNSUCCESS_MSG);
 		}

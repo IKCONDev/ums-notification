@@ -57,7 +57,7 @@ public class NotificationServiceImpl  implements NotificationService{
 	@Transactional
 	@Override
 	public Notification saveNotification(Notification notification) {
-		log.info("SaveNotification() entered with args : notification object");
+		log.info("saveNotification() entered with args : notification object");
 		if(notification == null) {
 			log.info("saveNotification() EmptyInputException: notification entity is null");
 			throw new EmptyInputException(ErrorCodeMessages.ERR_NOTIFICAT_ENTITY_IS_NULL_CODE,
