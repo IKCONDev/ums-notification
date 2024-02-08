@@ -45,8 +45,14 @@ public class NotificationServiceImpl  implements NotificationService{
 		List<Notification> updatedList = new ArrayList<>();
 		notificationList.forEach(notification ->{
 			String email = notification.getEmailId();
-			UserVO user =   restTemplate.getForObject("http://UMS-USERS-SERVICE/user/getUser/"+email,UserVO.class);
-			notification.setProfilepic(user.getProfilePic());
+			UserVO user = null;
+			try {
+			    user =   restTemplate.getForObject("http://UMS-USERS-SERVICE/user/getUser/"+email,UserVO.class);
+			    notification.setProfilepic(user.getProfilePic());
+			}catch (Exception e) {
+				user = new UserVO();
+				notification.setProfilepic(null);
+			}
 			//System.out.println("the notification object is : "+notification);
 			updatedList.add(notification);
 		});
