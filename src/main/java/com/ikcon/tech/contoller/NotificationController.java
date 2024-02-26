@@ -55,7 +55,7 @@ public class NotificationController {
 	}
 	
 	@PostMapping("/create")
-	public ResponseEntity<Notification> createNotificationDetails(@RequestBody Notification notification){
+	public ResponseEntity<Notification> createNotification(@RequestBody Notification notification){
 		log.info("saveNotificationDetails() entered with args notification:");
 		if(notification == null) {
 			log.info("saveNotificationDetails() EmptyInputException : object is null");
