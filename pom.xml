@@ -9,8 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.ikcon.tech</groupId>
-	<artifactId>umsnotification</artifactId>
-	<version>ALPHA-0.1</version>
+	<artifactId>ums-notification</artifactId>
+	<version>ALPHA-0.2</version>
 	<name>umsnotification</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
