@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.ikcon.tech</groupId>
 	<artifactId>ums-notification</artifactId>
-	<version>ALPHA-0.2</version>
+	<version>ALPHA-0.3</version>
 	<name>umsnotification</name>
 	<description>Demo project for Spring Boot</description>
 	<properties>
