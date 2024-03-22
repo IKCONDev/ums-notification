@@ -44,7 +44,7 @@ public class NotificationServiceImpl  implements NotificationService{
 		List<Notification> notificationList = notificationRepository.getAllNotifications(emailId);
 		List<Notification> updatedList = new ArrayList<>();
 		notificationList.forEach(notification ->{
-			String email = notification.getEmailId();
+			String email = notification.getCreatedByEmailId();
 			UserVO user = null;
 			try {
 			    user =   restTemplate.getForObject("http://UMS-USERS-SERVICE/user/getUser/"+email,UserVO.class);
